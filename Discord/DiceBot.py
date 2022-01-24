@@ -27,7 +27,7 @@ class Client(discord.Client):
         if message.author == client.user:
             return
         if message.content == "!d help":
-                await message.channel.send("Würfel Format: !d [Anzahl an Würfeln]x[Seitenanzahl der Würfel]\nBeispiele:\n3x6 (Würfelt 3mal einen 6seitigen Würfel)\n2x10 (Würfelt 2mal einen 10seitigen Würfel)\n\nSchreibe r, um den letzten Befehl zu widerholen.")
+                await message.channel.send("Würfel Format: !d [Anzahl an Würfeln]x[Seitenanzahl der Würfel]\nBeispiele:\n3x6 (Würfelt 3mal einen 6seitigen Würfel)\n2x10 (Würfelt 2mal einen 10seitigen Würfel)\n\nSchreibe r, um den letzten Befehl zu wiederholen.")
                 return
         if message.content.startswith("!d"):
             try:

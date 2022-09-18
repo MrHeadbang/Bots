@@ -4,8 +4,8 @@
  
 int main(int argc, char *argv[]) {
     int PIN = 0;
-    int codeSocketDon = 5510417;
-    int codeSocketDoff = 5510420;
+    int codeSocketDon = 0; //ON CODE
+    int codeSocketDoff = 0; //OFF CODE
     if (wiringPiSetup() == -1) return 1;
     RCSwitch mySwitch = RCSwitch();
     mySwitch.enableTransmit(PIN);

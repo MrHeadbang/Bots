@@ -17,36 +17,12 @@ int randTime()
 {
 	return rangeRandomAlg2(1000, 7500);
 }
-
-void moveUp(HWND hwnd)
+void move(HWND hwnd, int key)
 {
-	int key = 0x57;
 	PostMessage(hwnd, WM_KEYDOWN, key, MapVirtualKey(key, MAPVK_VK_TO_VSC));
 	Sleep(randTime());
 	PostMessage(hwnd, WM_KEYUP, key, MapVirtualKey(key, MAPVK_VK_TO_VSC));
 }
-void moveDown(HWND hwnd)
-{
-	int key = 0x53;
-	PostMessage(hwnd, WM_KEYDOWN, key, MapVirtualKey(key, MAPVK_VK_TO_VSC));
-	Sleep(randTime());
-	PostMessage(hwnd, WM_KEYUP, key, MapVirtualKey(key, MAPVK_VK_TO_VSC));
-}
-void moveLeft(HWND hwnd)
-{
-	int key = 0x41;
-	PostMessage(hwnd, WM_KEYDOWN, key, MapVirtualKey(key, MAPVK_VK_TO_VSC));
-	Sleep(randTime());
-	PostMessage(hwnd, WM_KEYUP, key, MapVirtualKey(key, MAPVK_VK_TO_VSC));
-}
-void moveRight(HWND hwnd)
-{
-	int key = 0x44;
-	PostMessage(hwnd, WM_KEYDOWN, key, MapVirtualKey(key, MAPVK_VK_TO_VSC));
-	Sleep(randTime());
-	PostMessage(hwnd, WM_KEYUP, key, MapVirtualKey(key, MAPVK_VK_TO_VSC));
-}
-
 
 int main()
 {
@@ -70,21 +46,8 @@ int main()
 	cout << "TargetProcess: " << TargetProcess << endl;
 	
 	while (true) {
-		switch (rangeRandomAlg2(0, 3))
-		{
-		case 0:
-			moveUp(GameHWND);
-			break;
-		case 1:
-			moveDown(GameHWND);
-			break;
-		case 2:
-			moveLeft(GameHWND);
-			break;
-		case 3:
-			moveRight(GameHWND);
-			break;
-		}
+		int keys[] = {0x57, 0x53 , 0x41, 0x44};
+		move(GameHWND, keys[rangeRandomAlg2(0, 3)]);
 		Sleep(rangeRandomAlg2(500, 3000));
 	}
 }
